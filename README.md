@@ -1,4 +1,4 @@
-# ALStrade website
+# ALST website
 
 One-page website for ALStrade Consulting Sàrl (alstrade.ch).
 
