@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=DM+Mono:wght@400;500&display=swap">
 <style>
 /* Layout: two views in one file (Home / Get in touch, switched by #contact).
-   Corporate metals-trading structure: hero banner, intro, four pillars, product focus, team, call to action.
+   Corporate metals-trading structure: hero banner, intro, three pillars, team, call to action.
    Single light theme in the ALStrade card colours. */
 :root {
   color-scheme: light;
@@ -71,29 +71,22 @@ nav .btn { color: var(--white); padding: 10px 18px; }
 
 /* Pillars */
 .pillars { background: var(--paper); border-block: 1px solid var(--line); }
-.pillar-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 48px; }
+.pillar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 48px; }
 .pillar { background: var(--white); padding: 32px 26px; }
 .pillar svg { width: 32px; height: 32px; stroke: var(--blue); fill: none; stroke-width: 1.7; margin-bottom: 18px; }
 .pillar h3 { font-size: 19px; color: var(--navy); margin-bottom: 10px; }
 .pillar p { color: var(--muted); margin: 0; font-size: 15px; }
+.pillar ul { margin: 14px 0 0 0; padding: 0; list-style: none; }
+.pillar li { padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 14px; color: var(--muted); }
+.pillar li:last-child { border-bottom: none; }
 @media (max-width: 960px) { .pillar-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 520px) { .pillar-grid { grid-template-columns: 1fr; } }
-
-/* Aluminium focus */
-.focus { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--line); margin-top: 48px; }
-.focus-visual { min-height: 300px; position: relative; display: flex; align-items: flex-end; padding: 28px;
-  background: url("assets/aluminium-ingots.png") center / cover no-repeat, var(--navy); }
-.focus-text { padding: 36px; display: flex; flex-direction: column; gap: 16px; min-width: 0; }
-.focus-text h3 { font-size: 28px; color: var(--navy); }
-.focus-text p { margin: 0; color: var(--muted); }
-.focus-text ul { margin: 0; padding: 0; list-style: none; }
-.focus-text li { padding: 10px 0; border-bottom: 1px solid var(--line); }
-@media (max-width: 760px) { .focus { grid-template-columns: 1fr; } .focus-visual { min-height: 180px; } }
 
 /* Team */
 .team { border-top: 1px solid var(--line); }
 .team .wrap { display: grid; grid-template-columns: 1fr 1.3fr; gap: 64px; }
 .leader h3 { font-size: 26px; color: var(--navy); }
+.leader h3 small { font-size: 16px; font-weight: 400; text-transform: none; }
 .leader .role { color: var(--blue); font-weight: 500; margin: 4px 0 16px; }
 .leader .bio-text { color: var(--muted); margin: 0 0 18px; max-width: 36em; }
 @media (max-width: 760px) { .team .wrap { grid-template-columns: 1fr; gap: 24px; } }
@@ -170,9 +163,9 @@ footer img { height: 30px; width: auto; }
   <!-- Banner photo: "Aluminium ingots St-Saphorin" by NAC, Wikimedia Commons, CC BY-SA 4.0 (https://commons.wikimedia.org/wiki/File:Aluminium_ingots_St-Saphorin_180310.jpg) -->
   <section class="hero" title="Photo: NAC / Wikimedia Commons, CC BY-SA 4.0">
     <div class="wrap">
-      <span class="tagline">ALUMINIUM · TRADING · CONSULTING</span>
-      <h1>Trading and consulting in <em>aluminium</em>.</h1>
-      <p>A dedicated aluminium trading house, connecting leading producers with industrial buyers.</p>
+      <span class="tagline">NON-FERROUS · TRADING · CONSULTING</span>
+      <h1>Trading and consulting in <em>non-ferrous metals</em>.</h1>
+      <p>A dedicated trading house connecting leading producers with industrial buyers.</p>
       <a class="btn" href="#contact">Get in touch</a>
     </div>
   </section>
@@ -184,8 +177,8 @@ footer img { height: 30px; width: auto; }
         <h2>Who we are</h2>
       </div>
       <div>
-        <p>ALStrade Consulting was established in 2022 as a specialist aluminium trader. We work hand in hand with major producers to bring high-quality metal to manufacturers and industrial buyers.</p>
-        <p>Beyond trading, we support our partners with advice on finance, commerce and the processing of raw materials.</p>
+        <p>As a pioneer in the industry, we worked hand in hand with major producers to bring high-quality metal to manufacturers and industrial buyers.</p>
+        <p>Beyond trading, we support our partners with advice on finance, commerce and logistics.</p>
       </div>
     </div>
   </section>
@@ -193,58 +186,40 @@ footer img { height: 30px; width: auto; }
   <section class="pillars">
     <div class="wrap">
       <span class="eyebrow">Our services</span>
-      <h2>More than a trader</h2>
+      <h2>Trading &amp; Supply Solutions</h2>
       <div class="pillar-grid">
         <div class="pillar">
           <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 16a11 11 0 0 1 19-7.5M27 16a11 11 0 0 1-19 7.5"/><path d="M24 3v6h-6M8 29v-6h6"/></svg>
-          <h3>Consignment stock</h3><p>Metal held ready for you and paid for only when you draw on it.</p>
+          <h3>Non-ferrous metals</h3>
+          <ul>
+            <li><strong>Aluminium:</strong> primary / secondary / scrap</li>
+            <li><strong>Copper:</strong> cathodes / wire rod / scrap</li>
+            <li><strong>Lead:</strong> soft lead / remelt</li>
+          </ul>
         </div>
         <div class="pillar">
           <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 20h26l-3 7H6z"/><path d="M8 20V11h10v9M18 14h6v6"/></svg>
-          <h3>Just-in-time supply</h3><p>Deliveries planned around your production schedule.</p>
-        </div>
-        <div class="pillar">
-          <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="11" cy="12" r="5"/><circle cx="22" cy="12" r="5"/><path d="M3 27c1-5 4-8 8-8s7 3 8 8M14 27c1-5 4-8 8-8s7 3 8 8"/></svg>
-          <h3>Inventory financing</h3><p>We carry the cost of stock so your working capital stays free.</p>
+          <h3>Just-in-time supply</h3>
+          <p>Deliveries planned around your production schedule.</p>
         </div>
         <div class="pillar">
           <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3l11 5v8c0 7-5 11-11 13C10 27 5 23 5 16V8z"/><path d="M11 16l4 4 7-8"/></svg>
-          <h3>Marketing agency</h3><p>We represent producers and place their metal with the right buyers.</p>
+          <h3>Marketing agency</h3>
+          <p>Connecting global producers with qualified industrial buyers and end-users.</p>
         </div>
       </div>
     </div>
   </section>
-
-  <section class="metals">
-    <div class="wrap">
-      <span class="eyebrow">What we trade</span>
-      <h2>Aluminium</h2>
-      <div class="focus">
-        <div class="focus-visual" role="img" aria-label="Stacks of aluminium ingots"></div>
-        <div class="focus-text">
-          <h3>Our products</h3>
-          <p>Aluminium is our core business. We supply:</p>
-          <ul>
-            <li>LME-deliverable primary aluminium</li>
-            <li>High-purity aluminium</li>
-            <li>Primary foundry alloys</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
 
   <section class="team">
     <div class="wrap">
       <div>
-        <span class="eyebrow">Our team</span>
-        <h2>Management</h2>
+        <span class="eyebrow">Management</span>
       </div>
       <div class="leader">
-        <h3>Anar Artioli</h3>
+        <h3>Anar Artioli <small>(Ms)</small></h3>
         <p class="role">Managing Director</p>
-        <p class="bio-text">Anar has more than 25 years of experience across the metals trading industry. She was Director of Intamex S.A. from 1997 to 2020, then Chief Operating Officer of Konexus Resources Group.</p>
+        <p class="bio-text">Anar brings over 25 years of leadership across the global metals trading industry, with a proven track record in operations and strategy as a former founder and C-suite executive.</p>
         <a class="linkedin" href="https://www.linkedin.com/in/anar-artioli-277819a7/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56zM22.22 0H1.77C.79 0 0 .77 0 1.730v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn profile</a>
       </div>
     </div>
@@ -273,9 +248,9 @@ footer img { height: 30px; width: auto; }
   <section class="contact-body">
     <div class="wrap">
       <div class="contact-person">
-        <h2>Anar Artioli</h2>
+        <h2>Anar Artioli <small>(Ms)</small></h2>
         <p class="role">Managing Director</p>
-        <p class="bio-text">Anar has more than 25 years of experience across the metals trading industry. She was Director of Intamex S.A. from 1997 to 2020, then Chief Operating Officer of Konexus Resources Group.</p>
+        <p class="bio-text">Anar brings over 25 years of leadership across the global metals trading industry, with a proven track record in operations and strategy as a former founder and C-suite executive.</p>
         <a class="linkedin" href="https://www.linkedin.com/in/anar-artioli-277819a7/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56zM22.22 0H1.77C.79 0 0 .77 0 1.730v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn profile</a>
       </div>
 
@@ -325,8 +300,7 @@ footer img { height: 30px; width: auto; }
   }
   window.addEventListener('hashchange', route);
   route();
-  // Form service endpoint (e.g. Formspree, set up to deliver to Anar's inbox).
-  // Paste the endpoint URL here when the account exists, e.g. 'https://formspree.io/f/xxxxxxx'.
+
   const FORM_ENDPOINT = '';
   const form = document.getElementById('contact-form');
   const note = document.getElementById('form-note');
