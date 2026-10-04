@@ -118,6 +118,88 @@ textarea { min-height: 160px; resize: vertical; }
 #form-note { font-size: 14px; color: var(--blue); margin: 0; }
 @media (max-width: 560px) { form { grid-template-columns: 1fr; } }
 
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 34, 102, 0.65);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+.modal-overlay[hidden] {
+  display: none;
+}
+.modal-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--blue);
+  padding: 40px 32px 32px;
+  max-width: 440px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(14, 26, 58, 0.2);
+  transform: translateY(0);
+  transition: transform 0.2s ease;
+}
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 26px;
+  color: var(--muted);
+  cursor: pointer;
+  line-height: 1;
+}
+.modal-close:hover { color: var(--navy); }
+.modal-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-icon.success {
+  background: var(--blue-soft);
+  color: var(--blue);
+}
+.modal-icon.error {
+  background: #fde8e8;
+  color: #e02424;
+}
+.modal-icon svg {
+  width: 32px;
+  height: 32px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.modal-card h3 {
+  font-size: 22px;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+.modal-card p {
+  color: var(--muted);
+  font-size: 15px;
+  margin: 0 0 24px;
+}
+.modal-btn {
+  width: 100%;
+}
+
 footer { background: var(--white); color: var(--muted); border-top: 1px solid var(--line); padding-block: 28px; font-size: 13px; }
 footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
 footer img { height: 30px; width: auto; }
@@ -255,6 +337,17 @@ footer img { height: 30px; width: auto; }
   </section>
 </main>
 
+<!-- Status Modal Popup -->
+<div id="status-modal" class="modal-overlay" hidden>
+  <div class="modal-card">
+    <button class="modal-close" id="modal-close-btn" aria-label="Close">&times;</button>
+    <div class="modal-icon" id="modal-icon"></div>
+    <h3 id="modal-title">Message Sent</h3>
+    <p id="modal-message">Thank you. Your message has been sent and we will reply soon.</p>
+    <button class="btn modal-btn" id="modal-ok-btn">Close</button>
+  </div>
+</div>
+
 <footer>
   <div class="wrap">
     <img src="assets/logo.png" alt="ALStrade" width="53" height="30">
@@ -276,17 +369,47 @@ footer img { height: 30px; width: auto; }
   window.addEventListener('hashchange', route);
   route();
 
-  // Insert your Web3Forms Access Key here:
+  // Web3Forms Access Key
   const WEB3FORMS_ACCESS_KEY = '9d94ae6d-ed8a-4ac8-8b70-58e8aef22679';
 
   const form = document.getElementById('contact-form');
   const note = document.getElementById('form-note');
   const submitBtn = document.getElementById('f-submit');
 
+  // Modal elements
+  const modal = document.getElementById('status-modal');
+  const modalIcon = document.getElementById('modal-icon');
+  const modalTitle = document.getElementById('modal-title');
+  const modalMessage = document.getElementById('modal-message');
+  const modalCloseBtn = document.getElementById('modal-close-btn');
+  const modalOkBtn = document.getElementById('modal-ok-btn');
+
+  function openModal(isSuccess, title, message) {
+    modalTitle.textContent = title;
+    modalMessage.textContent = message;
+    if (isSuccess) {
+      modalIcon.className = 'modal-icon success';
+      modalIcon.innerHTML = '<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+    } else {
+      modalIcon.className = 'modal-icon error';
+      modalIcon.innerHTML = '<svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
+    }
+    modal.removeAttribute('hidden');
+  }
+
+  function closeModal() {
+    modal.setAttribute('hidden', '');
+  }
+
+  modalCloseBtn.addEventListener('click', closeModal);
+  modalOkBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.hasAttribute('hidden')) closeModal(); });
+
   form.addEventListener('submit', async e => {
     e.preventDefault();
     if (!WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY === 'YOUR_ACCESS_KEY_HERE') {
-      note.textContent = 'Please replace YOUR_ACCESS_KEY_HERE on line 221 with your Web3Forms key.';
+      openModal(false, 'Configuration Needed', 'Please check your Web3Forms key on line 221.');
       return;
     }
     submitBtn.disabled = true;
@@ -301,12 +424,14 @@ footer img { height: 30px; width: auto; }
       const data = await res.json();
       if (data.success) {
         form.reset();
-        note.textContent = 'Thank you. Your message has been sent and we will reply soon.';
+        note.textContent = '';
+        openModal(true, 'Message Sent', 'Thank you. Your message has been sent successfully and we will reply soon.');
       } else {
         throw new Error(data.message);
       }
     } catch {
-      note.textContent = 'Your message could not be sent. Please try again in a few minutes.';
+      note.textContent = '';
+      openModal(false, 'Submission Error', 'Your message could not be sent. Please try again in a few minutes.');
     } finally {
       submitBtn.disabled = false;
     }
