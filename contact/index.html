@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Get in Touch - ALStrade Consulting</title>
+<meta name="description" content="Contact ALStrade Consulting – reach out to discuss non-ferrous metals trading and agency services.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="logo" href="../" title="ALStrade Home"><img src="../assets/logo.png" alt="ALStrade" width="78" height="44"></a>
+    <nav aria-label="Main">
+      <a href="../" id="nav-home">Home</a>
+      <a class="btn" href="./" id="nav-contact" aria-current="page">Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-head">
+    <div class="wrap">
+      <span class="eyebrow">CONTACT</span>
+      <h1>Get in touch</h1>
+    </div>
+  </section>
+
+  <section class="contact-body">
+    <div class="wrap">
+      <div class="contact-person">
+        <h2>Anar Artioli <small>(Ms)</small></h2>
+        <p class="role">Managing Director</p>
+        <p class="bio-text">Anar brings over 25 years of leadership across the global metals trading industry, with a proven track record in operations and strategy as a former founder and C-suite executive.</p>
+        <a class="linkedin" href="https://www.linkedin.com/in/anar-artioli-277819a7/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.36-.5-2.3-1.7-2.3-1 0-1.6.67-1.87 1.32-.09.23-.12.55-.12.88v5.67h-3.56V9.01h3.56v1.52h-.05c.5-.75 1.38-1.85 3.35-1.85 2.45 0 4.28 1.6 4.28 5.04v6.73zM5.34 7.43c-1.14 0-1.88-.76-1.88-1.71 0-.96.74-1.7 1.92-1.7 1.18 0 1.88.74 1.88 1.7 0 .96-.7 1.71-1.92 1.71zm1.62 13.02H3.73V9.01h3.23v11.44zM22.22 0H1.78C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.78 24h20.44c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0" fill="currentColor"/></svg> LinkedIn</a>
+      </div>
+
+      <form id="contact-form">
+        <label class="full">Full name<input id="f-name" name="name" required autocomplete="name"></label>
+        <label>Company<input id="f-company" name="company" required autocomplete="organization"></label>
+        <label>Country<input id="f-country" name="country" autocomplete="country-name"></label>
+        <label>Email<input id="f-email" name="email" type="email" required autocomplete="email"></label>
+        <label>Phone<input id="f-phone" name="phone" type="tel" required autocomplete="tel"></label>
+        <label class="full">Subject
+          <select id="f-subject" name="subject">
+            <option>Buying metals</option>
+            <option>Selling metals</option>
+            <option>Partnerships</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <label class="full">Message<textarea id="f-message" name="message" required></textarea></label>
+        <label class="consent"><input type="checkbox" id="f-consent" required> I agree that ALStrade may use these details to reply to my enquiry.</label>
+        <div class="form-foot">
+          <button class="btn" type="submit" id="f-submit">Send message</button>
+          <p id="form-note" role="status"></p>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<div id="status-modal" class="modal-overlay" hidden>
+  <div class="modal-card">
+    <button class="modal-close" id="modal-close-btn" aria-label="Close">&times;</button>
+    <div class="modal-icon" id="modal-icon"></div>
+    <h3 id="modal-title">Message Sent</h3>
+    <p id="modal-message">Thank you. Your message has been sent and we will reply soon.</p>
+    <button class="btn modal-btn" id="modal-ok-btn">Close</button>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <img src="../assets/logo.png" alt="ALStrade" width="53" height="30">
+    <span>© 2026 ALStrade Consulting Sàrl · Switzerland · UID CHE-429.863.366</span>
+  </div>
+</footer>
+
+<script>
+  const WEB3FORMS_ACCESS_KEY = '9d94ae6d-ed8a-4ac8-8b70-58e8aef22679';
+  const form = document.getElementById('contact-form');
+  const note = document.getElementById('form-note');
+  const submitBtn = document.getElementById('f-submit');
+
+  const modal = document.getElementById('status-modal');
+  const modalIcon = document.getElementById('modal-icon');
+  const modalTitle = document.getElementById('modal-title');
+  const modalMessage = document.getElementById('modal-message');
+  const modalCloseBtn = document.getElementById('modal-close-btn');
+  const modalOkBtn = document.getElementById('modal-ok-btn');
+
+  function openModal(isSuccess, title, message) {
+    modalTitle.textContent = title;
+    modalMessage.textContent = message;
+    if (isSuccess) {
+      modalIcon.className = 'modal-icon success';
+      modalIcon.innerHTML = '<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+    } else {
+      modalIcon.className = 'modal-icon error';
+      modalIcon.innerHTML = '<svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
+    }
+    modal.removeAttribute('hidden');
+  }
+
+  function closeModal() {
+    modal.setAttribute('hidden', '');
+  }
+
+  modalCloseBtn.addEventListener('click', closeModal);
+  modalOkBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.hasAttribute('hidden')) closeModal(); });
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (!WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY === 'YOUR_ACCESS_KEY_HERE') {
+      openModal(false, 'Configuration Needed', 'Please check your Web3Forms key in the script.');
+      return;
+    }
+    submitBtn.disabled = true;
+    note.textContent = 'Sending…';
+
+    const formData = new FormData(form);
+    formData.append('access_key', WEB3FORMS_ACCESS_KEY);
+    formData.append('from_name', 'ALStrade Website');
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
+      const data = await res.json();
+      if (data.success) {
+        form.reset();
+        note.textContent = '';
+        openModal(true, 'Message Sent', 'Thank you. Your message has been sent successfully and we will reply soon.');
+      } else {
+        throw new Error(data.message);
+      }
+    } catch {
+      note.textContent = '';
+      openModal(false, 'Submission Error', 'Your message could not be sent. Please try again in a few minutes.');
+    } finally {
+      submitBtn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>
