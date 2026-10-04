@@ -5,225 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>ALStrade Consulting</title>
 <meta name="description" content="ALStrade Consulting Sàrl – non-ferrous metals trading, Switzerland.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=DM+Mono:wght@400;500&display=swap">
-<style>
-:root {
-  color-scheme: light;
-  --navy: #0a2266;
-  --navy-2: #12307f;
-  --blue: #437de6;
-  --blue-soft: #eaf1fd;
-  --white: #ffffff;
-  --paper: #f5f7fb;
-  --fg: #0e1a3a;
-  --muted: #55627f;
-  --line: #dde4f0;
-  --on-navy: #ffffff;
-  --on-navy-muted: #b7c5e6;
-  --sans: "DM Sans", "Helvetica Neue", Arial, sans-serif;
-  --mono: "DM Mono", ui-monospace, Menlo, monospace;
-  --max: 1120px;
-}
-* { box-sizing: border-box; }
-body { margin: 0; background: var(--white); color: var(--fg); font: 16px/1.65 var(--sans); }
-a { color: inherit; }
-a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
-h1, h2, h3 { line-height: 1.12; text-wrap: balance; margin: 0; font-weight: 700; letter-spacing: -0.01em; }
-.wrap { max-width: var(--max); margin-inline: auto; padding-inline: 20px; }
-.eyebrow { font: 500 12px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--blue); }
-section { padding-block: 88px; }
-section h2 { font-size: clamp(28px, 4vw, 40px); color: var(--navy); margin-top: 14px; }
-.lead { color: var(--muted); font-size: 18px; max-width: 40em; margin: 18px 0 0; }
-
-/* Header */
-header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: var(--white); border-bottom: 1px solid var(--line); }
-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 72px; }
-.logo img { height: 44px; width: auto; display: block; }
-nav { display: flex; gap: 28px; align-items: center; }
-nav a { text-decoration: none; font-size: 15px; font-weight: 500; color: var(--navy); }
-nav a:hover, nav a[aria-current="page"] { color: var(--blue); }
-nav .btn { color: var(--white); padding: 10px 18px; }
-@media (max-width: 560px) { nav { gap: 16px; } nav .home-link { display: none; } }
-
-.btn { display: inline-block; background: var(--blue); color: var(--white); text-decoration: none; font-weight: 700; padding: 14px 26px; border: 0; cursor: pointer; font-size: 15px; font-family: var(--sans); }
-.btn:hover { background: #5a8ff0; color: var(--white); }
-
-/* Hero */
-.hero { position: relative; color: var(--on-navy); padding-block: 110px 120px; overflow: hidden;
-  background:
-    linear-gradient(100deg, rgba(10,34,102,.95) 0%, rgba(10,34,102,.85) 45%, rgba(10,34,102,.45) 100%),
-    url("assets/st-saphorin.jpg") center / cover no-repeat,
-    var(--navy); }
-.hero h1 { font-size: clamp(38px, 6vw, 64px); max-width: 14em; margin-block: 18px 22px; }
-.hero h1 em { font-style: normal; color: var(--blue); }
-.hero p { color: var(--on-navy-muted); font-size: 18px; max-width: 36em; margin: 0 0 32px; }
-.tagline { font: 400 13px var(--mono); color: var(--on-navy-muted); letter-spacing: .1em; }
-
-/* Intro */
-.intro .wrap { display: grid; grid-template-columns: 1fr 1.3fr; gap: 64px; }
-.intro p { color: var(--muted); margin: 0 0 16px; }
-@media (max-width: 760px) { .intro .wrap { grid-template-columns: 1fr; gap: 24px; } }
-
-/* Pillars */
-.pillars { background: var(--paper); border-block: 1px solid var(--line); }
-.pillar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 48px; }
-.pillar { background: var(--white); padding: 32px 26px; }
-.pillar svg { width: 32px; height: 32px; stroke: var(--blue); fill: none; stroke-width: 1.7; margin-bottom: 18px; }
-.pillar h3 { font-size: 19px; color: var(--navy); margin-bottom: 10px; }
-.pillar p { color: var(--muted); margin: 0; font-size: 15px; }
-.pillar ul { margin: 14px 0 0 0; padding: 0; list-style: none; }
-.pillar li { padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 14px; color: var(--muted); }
-.pillar li:last-child { border-bottom: none; }
-@media (max-width: 960px) { .pillar-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 520px) { .pillar-grid { grid-template-columns: 1fr; } }
-
-/* Team */
-.team { border-top: 1px solid var(--line); }
-.team .wrap { display: grid; grid-template-columns: 1fr 1.3fr; gap: 64px; }
-.leader h3 { font-size: 26px; color: var(--navy); }
-.leader h3 small { font-size: 16px; font-weight: 400; text-transform: none; }
-.leader .role { color: var(--blue); font-weight: 500; margin: 4px 0 16px; }
-.leader .bio-text { color: var(--muted); margin: 0 0 18px; max-width: 36em; }
-@media (max-width: 760px) { .team .wrap { grid-template-columns: 1fr; gap: 24px; } }
-.person-links { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-.linkedin { display: inline-flex; align-items: center; gap: 8px; color: var(--blue); font-weight: 500; text-decoration: none; }
-.linkedin:hover { text-decoration: underline; }
-.linkedin svg { width: 18px; height: 18px; fill: currentColor; }
-
-/* CTA band */
-.cta { background: var(--navy); color: var(--on-navy); padding-block: 72px; }
-.cta .wrap { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
-.cta h2 { color: var(--on-navy); margin: 0; }
-.cta p { color: var(--on-navy-muted); margin: 10px 0 0; }
-
-/* Contact page */
-.page-head { background: var(--navy); color: var(--on-navy); padding-block: 72px; }
-.page-head h1 { font-size: clamp(36px, 5vw, 54px); margin-top: 14px; }
-.page-head p { color: var(--on-navy-muted); font-size: 18px; max-width: 36em; margin: 16px 0 0; }
-.contact-body .wrap { max-width: 800px; display: grid; gap: 48px; }
-.contact-person { border-left: 2px solid var(--navy); padding-left: 24px; }
-.contact-person h2 { margin: 0; }
-.contact-person .bio-text { color: var(--muted); margin: 0 0 14px; max-width: 40em; }
-form { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-label { display: grid; gap: 6px; font-size: 14px; font-weight: 500; color: var(--navy); }
-label.full, .form-foot { grid-column: 1 / -1; }
-input, textarea, select { font: 15px var(--sans); padding: 12px 14px; background: var(--white); color: var(--fg); border: 1px solid var(--line); border-radius: 0; width: 100%; }
-input:focus, textarea:focus, select:focus { border-color: var(--blue); }
-textarea { min-height: 160px; resize: vertical; }
-.consent { grid-column: 1 / -1; display: flex; gap: 10px; align-items: flex-start; font-weight: 400; color: var(--muted); }
-.consent input { width: auto; margin-top: 4px; }
-.form-foot { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
-#form-note { font-size: 14px; color: var(--blue); margin: 0; }
-@media (max-width: 560px) { form { grid-template-columns: 1fr; } }
-
-/* Modal Overlay */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(10, 34, 102, 0.65);
-  backdrop-filter: blur(4px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  padding: 20px;
-  opacity: 1;
-  transition: opacity 0.2s ease;
-}
-.modal-overlay[hidden] {
-  display: none;
-}
-.modal-card {
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-top: 4px solid var(--blue);
-  padding: 40px 32px 32px;
-  max-width: 440px;
-  width: 100%;
-  text-align: center;
-  position: relative;
-  box-shadow: 0 20px 40px rgba(14, 26, 58, 0.2);
-  transform: translateY(0);
-  transition: transform 0.2s ease;
-}
-.modal-close {
-  position: absolute;
-  top: 12px;
-  right: 16px;
-  background: none;
-  border: none;
-  font-size: 26px;
-  color: var(--muted);
-  cursor: pointer;
-  line-height: 1;
-}
-.modal-close:hover { color: var(--navy); }
-.modal-icon {
-  width: 60px;
-  height: 60px;
-  margin: 0 auto 20px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.modal-icon.success {
-  background: var(--blue-soft);
-  color: var(--blue);
-}
-.modal-icon.error {
-  background: #fde8e8;
-  color: #e02424;
-}
-.modal-icon svg {
-  width: 32px;
-  height: 32px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-.modal-card h3 {
-  font-size: 22px;
-  color: var(--navy);
-  margin-bottom: 10px;
-}
-.modal-card p {
-  color: var(--muted);
-  font-size: 15px;
-  margin: 0 0 24px;
-}
-.modal-btn {
-  width: 100%;
-}
-
-footer { background: var(--white); color: var(--muted); border-top: 1px solid var(--line); padding-block: 28px; font-size: 13px; }
-footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
-footer img { height: 30px; width: auto; }
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <header>
   <div class="wrap">
-    <a class="logo" href="#home"><img src="assets/logo.png" alt="ALStrade" width="78" height="44"></a>
+    <a class="logo" href="./" title="ALStrade Home"><img src="assets/logo.png" alt="ALStrade" width="78" height="44"></a>
     <nav aria-label="Main">
-      <a class="home-link" href="#home" id="nav-home">Home</a>
-      <a class="btn" href="#contact" id="nav-contact">Get in touch</a>
+      <a href="./" id="nav-home" aria-current="page">Home</a>
+      <a class="btn" href="contact/" id="nav-contact">Get in touch</a>
     </nav>
   </div>
 </header>
 
-<!-- ============ HOME ============ -->
-<main id="view-home">
+<main>
   <section class="hero" title="Photo: NAC / Wikimedia Commons, CC BY-SA 4.0">
     <div class="wrap">
       <span class="tagline">NON-FERROUS · TRADING · CONSULTING</span>
       <h1>Trading and consulting in <em>non-ferrous metals</em>.</h1>
       <p>Bridging global metal supply with industrial end-users worldwide through reliable trading and agency services.</p>
-      <a class="btn" href="#contact">Get in touch</a>
+      <a class="btn" href="contact/">Get in touch</a>
     </div>
   </section>
 
@@ -278,7 +79,7 @@ footer img { height: 30px; width: auto; }
         <h3>Anar Artioli <small>(Ms)</small></h3>
         <p class="role">Managing Director</p>
         <p class="bio-text">Anar brings over 25 years of leadership across the global metals trading industry, with a proven track record in operations and strategy as a former founder and C-suite executive.</p>
-        <a class="linkedin" href="https://www.linkedin.com/in/anar-artioli-277819a7/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56zM22.22 0H1.77C.79 0 0 .77 0 1.730v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn profile</a>
+        <a class="linkedin" href="https://www.linkedin.com/in/anar-artioli-277819a7/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.36-.5-2.3-1.7-2.3-1 0-1.6.67-1.87 1.32-.09.23-.12.55-.12.88v5.67h-3.56V9.01h3.56v1.52h-.05c.5-.75 1.38-1.85 3.35-1.85 2.45 0 4.28 1.6 4.28 5.04v6.73zM5.34 7.43c-1.14 0-1.88-.76-1.88-1.71 0-.96.74-1.7 1.92-1.7 1.18 0 1.88.74 1.88 1.7 0 .96-.7 1.71-1.92 1.71zm1.62 13.02H3.73V9.01h3.23v11.44zM22.22 0H1.78C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.78 24h20.44c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0" fill="currentColor"/></svg> LinkedIn</a>
       </div>
     </div>
   </section>
@@ -289,64 +90,10 @@ footer img { height: 30px; width: auto; }
         <h2>Start a conversation with ALStrade</h2>
         <p>Send us a message and we will get back to you.</p>
       </div>
-      <a class="btn" href="#contact">Get in touch</a>
+      <a class="btn" href="contact/">Get in touch</a>
     </div>
   </section>
 </main>
-
-<!-- ============ GET IN TOUCH ============ -->
-<main id="view-contact" hidden>
-  <section class="page-head">
-    <div class="wrap">
-      <span class="eyebrow">CONTACT</span>
-      <h1>Get in touch</h1>
-    </div>
-  </section>
-
-  <section class="contact-body">
-    <div class="wrap">
-      <div class="contact-person">
-        <h2>Anar Artioli <small>(Ms)</small></h2>
-        <p class="role">Managing Director</p>
-        <p class="bio-text">Anar brings over 25 years of leadership across the global metals trading industry, with a proven track record in operations and strategy as a former founder and C-suite executive.</p>
-        <a class="linkedin" href="https://www.linkedin.com/in/anar-artioli-277819a7/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56zM22.22 0H1.77C.79 0 0 .77 0 1.730v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn profile</a>
-      </div>
-
-      <form id="contact-form">
-        <label class="full">Full name<input id="f-name" name="name" required autocomplete="name"></label>
-        <label>Company<input id="f-company" name="company" required autocomplete="organization"></label>
-        <label>Country<input id="f-country" name="country" autocomplete="country-name"></label>
-        <label>Email<input id="f-email" name="email" type="email" required autocomplete="email"></label>
-        <label>Phone<input id="f-phone" name="phone" type="tel" required autocomplete="tel"></label>
-        <label class="full">Subject
-          <select id="f-subject" name="subject">
-            <option>Buying metals</option>
-            <option>Selling metals</option>
-            <option>Partnerships</option>
-            <option>Other</option>
-          </select>
-        </label>
-        <label class="full">Message<textarea id="f-message" name="message" required></textarea></label>
-        <label class="consent"><input type="checkbox" id="f-consent" required> I agree that ALStrade may use these details to reply to my enquiry.</label>
-        <div class="form-foot">
-          <button class="btn" type="submit" id="f-submit">Send message</button>
-          <p id="form-note" role="status"></p>
-        </div>
-      </form>
-    </div>
-  </section>
-</main>
-
-<!-- Status Modal Popup -->
-<div id="status-modal" class="modal-overlay" hidden>
-  <div class="modal-card">
-    <button class="modal-close" id="modal-close-btn" aria-label="Close">&times;</button>
-    <div class="modal-icon" id="modal-icon"></div>
-    <h3 id="modal-title">Message Sent</h3>
-    <p id="modal-message">Thank you. Your message has been sent and we will reply soon.</p>
-    <button class="btn modal-btn" id="modal-ok-btn">Close</button>
-  </div>
-</div>
 
 <footer>
   <div class="wrap">
@@ -354,89 +101,5 @@ footer img { height: 30px; width: auto; }
     <span>© 2026 ALStrade Consulting Sàrl · Switzerland · UID CHE-429.863.366</span>
   </div>
 </footer>
-
-<script>
-  const home = document.getElementById('view-home');
-  const contact = document.getElementById('view-contact');
-  function route() {
-    const onContact = location.hash === '#contact';
-    home.hidden = onContact;
-    contact.hidden = !onContact;
-    document.getElementById('nav-home').toggleAttribute('aria-current', !onContact);
-    document.getElementById('nav-contact').toggleAttribute('aria-current', onContact);
-    if (!onContact || location.hash) window.scrollTo(0, 0);
-  }
-  window.addEventListener('hashchange', route);
-  route();
-
-  // Web3Forms Access Key
-  const WEB3FORMS_ACCESS_KEY = '9d94ae6d-ed8a-4ac8-8b70-58e8aef22679';
-
-  const form = document.getElementById('contact-form');
-  const note = document.getElementById('form-note');
-  const submitBtn = document.getElementById('f-submit');
-
-  // Modal elements
-  const modal = document.getElementById('status-modal');
-  const modalIcon = document.getElementById('modal-icon');
-  const modalTitle = document.getElementById('modal-title');
-  const modalMessage = document.getElementById('modal-message');
-  const modalCloseBtn = document.getElementById('modal-close-btn');
-  const modalOkBtn = document.getElementById('modal-ok-btn');
-
-  function openModal(isSuccess, title, message) {
-    modalTitle.textContent = title;
-    modalMessage.textContent = message;
-    if (isSuccess) {
-      modalIcon.className = 'modal-icon success';
-      modalIcon.innerHTML = '<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>';
-    } else {
-      modalIcon.className = 'modal-icon error';
-      modalIcon.innerHTML = '<svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
-    }
-    modal.removeAttribute('hidden');
-  }
-
-  function closeModal() {
-    modal.setAttribute('hidden', '');
-  }
-
-  modalCloseBtn.addEventListener('click', closeModal);
-  modalOkBtn.addEventListener('click', closeModal);
-  modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.hasAttribute('hidden')) closeModal(); });
-
-  form.addEventListener('submit', async e => {
-    e.preventDefault();
-    if (!WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY === 'YOUR_ACCESS_KEY_HERE') {
-      openModal(false, 'Configuration Needed', 'Please check your Web3Forms key on line 221.');
-      return;
-    }
-    submitBtn.disabled = true;
-    note.textContent = 'Sending…';
-
-    const formData = new FormData(form);
-    formData.append('access_key', WEB3FORMS_ACCESS_KEY);
-    formData.append('from_name', 'ALStrade Website');
-
-    try {
-      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
-      const data = await res.json();
-      if (data.success) {
-        form.reset();
-        note.textContent = '';
-        openModal(true, 'Message Sent', 'Thank you. Your message has been sent successfully and we will reply soon.');
-      } else {
-        throw new Error(data.message);
-      }
-    } catch {
-      note.textContent = '';
-      openModal(false, 'Submission Error', 'Your message could not be sent. Please try again in a few minutes.');
-    } finally {
-      submitBtn.disabled = false;
-    }
-  });
-</script>
-
 </body>
 </html>
