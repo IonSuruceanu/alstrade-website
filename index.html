@@ -256,17 +256,16 @@ footer img { height: 30px; width: auto; }
       </div>
 
       <form id="contact-form">
-        <label>First name<input id="f-first" name="first_name" required autocomplete="given-name"></label>
-        <label>Last name<input id="f-last" name="last_name" required autocomplete="family-name"></label>
+        <label class="full">Full name<input id="f-name" name="name" required autocomplete="name"></label>
         <label>Company<input id="f-company" name="company" required autocomplete="organization"></label>
         <label>Country<input id="f-country" name="country" autocomplete="country-name"></label>
         <label>Email<input id="f-email" name="email" type="email" required autocomplete="email"></label>
-        <label>Phone <span class="opt">(optional)</span><input id="f-phone" name="phone" type="tel" autocomplete="tel"></label>
+        <label>Phone<input id="f-phone" name="phone" type="tel" required autocomplete="tel"></label>
         <label class="full">Subject
           <select id="f-subject" name="subject">
-            <option>Buying aluminium</option>
-            <option>Selling aluminium</option>
-            <option>Partnership</option>
+            <option>Buying metals</option>
+            <option>Selling metals</option>
+            <option>Partnerships</option>
             <option>Other</option>
           </select>
         </label>
