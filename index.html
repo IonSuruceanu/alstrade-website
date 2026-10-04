@@ -9,9 +9,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=DM+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: two views in one file (Home / Get in touch, switched by #contact).
-   Corporate metals-trading structure: hero banner, intro, three pillars, team, call to action.
-   Single light theme in the ALStrade card colours. */
 :root {
   color-scheme: light;
   --navy: #0a2266;
@@ -53,7 +50,7 @@ nav .btn { color: var(--white); padding: 10px 18px; }
 .btn { display: inline-block; background: var(--blue); color: var(--white); text-decoration: none; font-weight: 700; padding: 14px 26px; border: 0; cursor: pointer; font-size: 15px; font-family: var(--sans); }
 .btn:hover { background: #5a8ff0; color: var(--white); }
 
-/* Hero: brushed-aluminium banner */
+/* Hero */
 .hero { position: relative; color: var(--on-navy); padding-block: 110px 120px; overflow: hidden;
   background:
     linear-gradient(100deg, rgba(10,34,102,.95) 0%, rgba(10,34,102,.85) 45%, rgba(10,34,102,.45) 100%),
@@ -90,25 +87,10 @@ nav .btn { color: var(--white); padding: 10px 18px; }
 .leader .role { color: var(--blue); font-weight: 500; margin: 4px 0 16px; }
 .leader .bio-text { color: var(--muted); margin: 0 0 18px; max-width: 36em; }
 @media (max-width: 760px) { .team .wrap { grid-template-columns: 1fr; gap: 24px; } }
-.person-info { min-width: 0; border-left: 2px solid var(--navy); padding-left: 20px; }
-.person h3 { font-size: 22px; color: var(--navy); text-transform: uppercase; letter-spacing: .02em; }
-.person h3 small { font-size: 16px; font-weight: 400; text-transform: none; }
-.role { color: var(--navy); margin: 2px 0 16px; }
-.contact-lines { display: grid; gap: 6px; font-size: 15px; }
-.contact-lines div { display: flex; align-items: center; gap: 10px; min-width: 0; }
-.contact-lines svg { width: 16px; height: 16px; fill: var(--blue); flex: none; }
-.contact-lines span { user-select: all; overflow-wrap: anywhere; }
-.qr { width: 132px; text-align: center; font: 400 11px var(--mono); color: var(--muted); }
-.qr img { width: 132px; height: 132px; display: block; margin-bottom: 6px; }
-.bio { grid-column: 1 / -1; color: var(--muted); font-size: 15px; border-top: 1px solid var(--line); padding-top: 20px; }
-.bio p { margin: 0 0 12px; }
-.person .bio-text { color: var(--muted); font-size: 15px; margin: 0 0 20px; }
 .person-links { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
 .linkedin { display: inline-flex; align-items: center; gap: 8px; color: var(--blue); font-weight: 500; text-decoration: none; }
 .linkedin:hover { text-decoration: underline; }
 .linkedin svg { width: 18px; height: 18px; fill: currentColor; }
-@media (max-width: 960px) { .people { grid-template-columns: 1fr; } }
-@media (max-width: 480px) { .person { grid-template-columns: 1fr; padding: 24px; } }
 
 /* CTA band */
 .cta { background: var(--navy); color: var(--on-navy); padding-block: 72px; }
@@ -126,7 +108,6 @@ nav .btn { color: var(--white); padding: 10px 18px; }
 .contact-person .bio-text { color: var(--muted); margin: 0 0 14px; max-width: 40em; }
 form { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 label { display: grid; gap: 6px; font-size: 14px; font-weight: 500; color: var(--navy); }
-label .opt { font-weight: 400; color: var(--muted); }
 label.full, .form-foot { grid-column: 1 / -1; }
 input, textarea, select { font: 15px var(--sans); padding: 12px 14px; background: var(--white); color: var(--fg); border: 1px solid var(--line); border-radius: 0; width: 100%; }
 input:focus, textarea:focus, select:focus { border-color: var(--blue); }
@@ -135,11 +116,6 @@ textarea { min-height: 160px; resize: vertical; }
 .consent input { width: auto; margin-top: 4px; }
 .form-foot { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
 #form-note { font-size: 14px; color: var(--blue); margin: 0; }
-.side { display: grid; gap: 28px; align-content: start; }
-.side-block { border-top: 2px solid var(--navy); padding-top: 18px; }
-.side-block small { font: 500 11px var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--blue); }
-.side-block p { margin: 6px 0 0; }
-.side-block span { user-select: all; overflow-wrap: anywhere; }
 @media (max-width: 560px) { form { grid-template-columns: 1fr; } }
 
 footer { background: var(--white); color: var(--muted); border-top: 1px solid var(--line); padding-block: 28px; font-size: 13px; }
@@ -160,7 +136,6 @@ footer img { height: 30px; width: auto; }
 
 <!-- ============ HOME ============ -->
 <main id="view-home">
-  <!-- Banner photo: "Aluminium ingots St-Saphorin" by NAC, Wikimedia Commons, CC BY-SA 4.0 (https://commons.wikimedia.org/wiki/File:Aluminium_ingots_St-Saphorin_180310.jpg) -->
   <section class="hero" title="Photo: NAC / Wikimedia Commons, CC BY-SA 4.0">
     <div class="wrap">
       <span class="tagline">NON-FERROUS · TRADING · CONSULTING</span>
@@ -301,23 +276,35 @@ footer img { height: 30px; width: auto; }
   window.addEventListener('hashchange', route);
   route();
 
-  const FORM_ENDPOINT = 'send-email.php';
+  // Insert your Web3Forms Access Key here:
+  const WEB3FORMS_ACCESS_KEY = '9d94ae6d-ed8a-4ac8-8b70-58e8aef22679';
+
   const form = document.getElementById('contact-form');
   const note = document.getElementById('form-note');
   const submitBtn = document.getElementById('f-submit');
+
   form.addEventListener('submit', async e => {
     e.preventDefault();
-    if (!FORM_ENDPOINT) {
-      note.textContent = 'Preview only: this form isn’t connected to an inbox yet.';
+    if (!WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY === 'YOUR_ACCESS_KEY_HERE') {
+      note.textContent = 'Please replace YOUR_ACCESS_KEY_HERE on line 221 with your Web3Forms key.';
       return;
     }
     submitBtn.disabled = true;
     note.textContent = 'Sending…';
+
+    const formData = new FormData(form);
+    formData.append('access_key', WEB3FORMS_ACCESS_KEY);
+    formData.append('from_name', 'ALStrade Website');
+
     try {
-      const res = await fetch(FORM_ENDPOINT, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
-      if (!res.ok) throw new Error(res.status);
-      form.reset();
-      note.textContent = 'Thank you. Your message has been sent and we will reply soon.';
+      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
+      const data = await res.json();
+      if (data.success) {
+        form.reset();
+        note.textContent = 'Thank you. Your message has been sent and we will reply soon.';
+      } else {
+        throw new Error(data.message);
+      }
     } catch {
       note.textContent = 'Your message could not be sent. Please try again in a few minutes.';
     } finally {
