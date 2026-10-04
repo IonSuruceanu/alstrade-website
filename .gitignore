@@ -1,0 +1,4 @@
+# Private: QR code with personal contact details and the script that builds it
+assets/qr-anar.png
+tools/
+.DS_Store

@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ALStrade Consulting</title>
+<meta name="description" content="ALStrade Consulting Sàrl – aluminium trading, Lutry, Switzerland.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=DM+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: two views in one file (Home / Get in touch, switched by #contact).
+   Corporate metals-trading structure: hero banner, intro, four pillars, product focus, team, call to action.
+   Single light theme in the ALStrade card colours. */
+:root {
+  color-scheme: light;
+  --navy: #0a2266;
+  --navy-2: #12307f;
+  --blue: #437de6;
+  --blue-soft: #eaf1fd;
+  --white: #ffffff;
+  --paper: #f5f7fb;
+  --fg: #0e1a3a;
+  --muted: #55627f;
+  --line: #dde4f0;
+  --on-navy: #ffffff;
+  --on-navy-muted: #b7c5e6;
+  --sans: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono: "DM Mono", ui-monospace, Menlo, monospace;
+  --max: 1120px;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--white); color: var(--fg); font: 16px/1.65 var(--sans); }
+a { color: inherit; }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+h1, h2, h3 { line-height: 1.12; text-wrap: balance; margin: 0; font-weight: 700; letter-spacing: -0.01em; }
+.wrap { max-width: var(--max); margin-inline: auto; padding-inline: 20px; }
+.eyebrow { font: 500 12px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--blue); }
+section { padding-block: 88px; }
+section h2 { font-size: clamp(28px, 4vw, 40px); color: var(--navy); margin-top: 14px; }
+.lead { color: var(--muted); font-size: 18px; max-width: 40em; margin: 18px 0 0; }
+
+/* Header */
+header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: var(--white); border-bottom: 1px solid var(--line); }
+header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 72px; }
+.logo img { height: 44px; width: auto; display: block; }
+nav { display: flex; gap: 28px; align-items: center; }
+nav a { text-decoration: none; font-size: 15px; font-weight: 500; color: var(--navy); }
+nav a:hover, nav a[aria-current="page"] { color: var(--blue); }
+nav .btn { color: var(--white); padding: 10px 18px; }
+@media (max-width: 560px) { nav { gap: 16px; } nav .home-link { display: none; } }
+
+.btn { display: inline-block; background: var(--blue); color: var(--white); text-decoration: none; font-weight: 700; padding: 14px 26px; border: 0; cursor: pointer; font-size: 15px; font-family: var(--sans); }
+.btn:hover { background: #5a8ff0; color: var(--white); }
+
+/* Hero: brushed-aluminium banner */
+.hero { position: relative; color: var(--on-navy); padding-block: 110px 120px; overflow: hidden;
+  background:
+    linear-gradient(100deg, rgba(10,34,102,.95) 0%, rgba(10,34,102,.85) 45%, rgba(10,34,102,.45) 100%),
+    url("assets/st-saphorin.jpg") center / cover no-repeat,
+    var(--navy); }
+.hero h1 { font-size: clamp(38px, 6vw, 64px); max-width: 14em; margin-block: 18px 22px; }
+.hero h1 em { font-style: normal; color: var(--blue); }
+.hero p { color: var(--on-navy-muted); font-size: 18px; max-width: 36em; margin: 0 0 32px; }
+.tagline { font: 400 13px var(--mono); color: var(--on-navy-muted); letter-spacing: .1em; }
+
+/* Intro */
+.intro .wrap { display: grid; grid-template-columns: 1fr 1.3fr; gap: 64px; }
+.intro p { color: var(--muted); margin: 0 0 16px; }
+@media (max-width: 760px) { .intro .wrap { grid-template-columns: 1fr; gap: 24px; } }
+
+/* Pillars */
+.pillars { background: var(--paper); border-block: 1px solid var(--line); }
+.pillar-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 48px; }
+.pillar { background: var(--white); padding: 32px 26px; }
+.pillar svg { width: 32px; height: 32px; stroke: var(--blue); fill: none; stroke-width: 1.7; margin-bottom: 18px; }
+.pillar h3 { font-size: 19px; color: var(--navy); margin-bottom: 10px; }
+.pillar p { color: var(--muted); margin: 0; font-size: 15px; }
+@media (max-width: 960px) { .pillar-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .pillar-grid { grid-template-columns: 1fr; } }
+
+/* Aluminium focus */
+.focus { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--line); margin-top: 48px; }
+.focus-visual { min-height: 300px; position: relative; display: flex; align-items: flex-end; padding: 28px;
+  background: url("assets/aluminium-ingots.png") center / cover no-repeat, var(--navy); }
+.focus-text { padding: 36px; display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.focus-text h3 { font-size: 28px; color: var(--navy); }
+.focus-text p { margin: 0; color: var(--muted); }
+.focus-text ul { margin: 0; padding: 0; list-style: none; }
+.focus-text li { padding: 10px 0; border-bottom: 1px solid var(--line); }
+@media (max-width: 760px) { .focus { grid-template-columns: 1fr; } .focus-visual { min-height: 180px; } }
+
+/* Team */
+.team { border-top: 1px solid var(--line); }
+.team .wrap { display: grid; grid-template-columns: 1fr 1.3fr; gap: 64px; }
+.leader h3 { font-size: 26px; color: var(--navy); }
+.leader .role { color: var(--blue); font-weight: 500; margin: 4px 0 16px; }
+.leader .bio-text { color: var(--muted); margin: 0 0 18px; max-width: 36em; }
+@media (max-width: 760px) { .team .wrap { grid-template-columns: 1fr; gap: 24px; } }
+.person-info { min-width: 0; border-left: 2px solid var(--navy); padding-left: 20px; }
+.person h3 { font-size: 22px; color: var(--navy); text-transform: uppercase; letter-spacing: .02em; }
+.person h3 small { font-size: 16px; font-weight: 400; text-transform: none; }
+.role { color: var(--navy); margin: 2px 0 16px; }
+.contact-lines { display: grid; gap: 6px; font-size: 15px; }
+.contact-lines div { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.contact-lines svg { width: 16px; height: 16px; fill: var(--blue); flex: none; }
+.contact-lines span { user-select: all; overflow-wrap: anywhere; }
+.qr { width: 132px; text-align: center; font: 400 11px var(--mono); color: var(--muted); }
+.qr img { width: 132px; height: 132px; display: block; margin-bottom: 6px; }
+.bio { grid-column: 1 / -1; color: var(--muted); font-size: 15px; border-top: 1px solid var(--line); padding-top: 20px; }
+.bio p { margin: 0 0 12px; }
+.person .bio-text { color: var(--muted); font-size: 15px; margin: 0 0 20px; }
+.person-links { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.linkedin { display: inline-flex; align-items: center; gap: 8px; color: var(--blue); font-weight: 500; text-decoration: none; }
+.linkedin:hover { text-decoration: underline; }
+.linkedin svg { width: 18px; height: 18px; fill: currentColor; }
+@media (max-width: 960px) { .people { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .person { grid-template-columns: 1fr; padding: 24px; } }
+
+/* CTA band */
+.cta { background: var(--navy); color: var(--on-navy); padding-block: 72px; }
+.cta .wrap { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+.cta h2 { color: var(--on-navy); margin: 0; }
+.cta p { color: var(--on-navy-muted); margin: 10px 0 0; }
+
+/* Contact page */
+.page-head { background: var(--navy); color: var(--on-navy); padding-block: 72px; }
+.page-head h1 { font-size: clamp(36px, 5vw, 54px); margin-top: 14px; }
+.page-head p { color: var(--on-navy-muted); font-size: 18px; max-width: 36em; margin: 16px 0 0; }
+.contact-body .wrap { max-width: 800px; display: grid; gap: 48px; }
+.contact-person { border-left: 2px solid var(--navy); padding-left: 24px; }
+.contact-person h2 { margin: 0; }
+.contact-person .bio-text { color: var(--muted); margin: 0 0 14px; max-width: 40em; }
+form { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+label { display: grid; gap: 6px; font-size: 14px; font-weight: 500; color: var(--navy); }
+label .opt { font-weight: 400; color: var(--muted); }
+label.full, .form-foot { grid-column: 1 / -1; }
+input, textarea, select { font: 15px var(--sans); padding: 12px 14px; background: var(--white); color: var(--fg); border: 1px solid var(--line); border-radius: 0; width: 100%; }
+input:focus, textarea:focus, select:focus { border-color: var(--blue); }
+textarea { min-height: 160px; resize: vertical; }
+.consent { grid-column: 1 / -1; display: flex; gap: 10px; align-items: flex-start; font-weight: 400; color: var(--muted); }
+.consent input { width: auto; margin-top: 4px; }
+.form-foot { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+#form-note { font-size: 14px; color: var(--blue); margin: 0; }
+.side { display: grid; gap: 28px; align-content: start; }
+.side-block { border-top: 2px solid var(--navy); padding-top: 18px; }
+.side-block small { font: 500 11px var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--blue); }
+.side-block p { margin: 6px 0 0; }
+.side-block span { user-select: all; overflow-wrap: anywhere; }
+@media (max-width: 560px) { form { grid-template-columns: 1fr; } }
+
+footer { background: var(--white); color: var(--muted); border-top: 1px solid var(--line); padding-block: 28px; font-size: 13px; }
+footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+footer img { height: 30px; width: auto; }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="logo" href="#home"><img src="assets/logo.png" alt="ALStrade" width="78" height="44"></a>
+    <nav aria-label="Main">
+      <a class="home-link" href="#home" id="nav-home">Home</a>
+      <a class="btn" href="#contact" id="nav-contact">Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HOME ============ -->
+<main id="view-home">
+  <!-- Banner photo: "Aluminium ingots St-Saphorin" by NAC, Wikimedia Commons, CC BY-SA 4.0 (https://commons.wikimedia.org/wiki/File:Aluminium_ingots_St-Saphorin_180310.jpg) -->
+  <section class="hero" title="Photo: NAC / Wikimedia Commons, CC BY-SA 4.0">
+    <div class="wrap">
+      <span class="tagline">ALUMINIUM · TRADING · CONSULTING</span>
+      <h1>Trading and consulting in <em>aluminium</em>.</h1>
+      <p>A dedicated aluminium trading house, connecting leading producers with industrial buyers.</p>
+      <a class="btn" href="#contact">Get in touch</a>
+    </div>
+  </section>
+
+  <section class="intro">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">About ALStrade</span>
+        <h2>Who we are</h2>
+      </div>
+      <div>
+        <p>ALStrade Consulting was established in 2022 as a specialist aluminium trader. We work hand in hand with major producers to bring high-quality metal to manufacturers and industrial buyers.</p>
+        <p>Beyond trading, we support our partners with advice on finance, commerce and the processing of raw materials.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pillars">
+    <div class="wrap">
+      <span class="eyebrow">Our services</span>
+      <h2>More than a trader</h2>
+      <div class="pillar-grid">
+        <div class="pillar">
+          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 16a11 11 0 0 1 19-7.5M27 16a11 11 0 0 1-19 7.5"/><path d="M24 3v6h-6M8 29v-6h6"/></svg>
+          <h3>Consignment stock</h3><p>Metal held ready for you and paid for only when you draw on it.</p>
+        </div>
+        <div class="pillar">
+          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 20h26l-3 7H6z"/><path d="M8 20V11h10v9M18 14h6v6"/></svg>
+          <h3>Just-in-time supply</h3><p>Deliveries planned around your production schedule.</p>
+        </div>
+        <div class="pillar">
+          <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="11" cy="12" r="5"/><circle cx="22" cy="12" r="5"/><path d="M3 27c1-5 4-8 8-8s7 3 8 8M14 27c1-5 4-8 8-8s7 3 8 8"/></svg>
+          <h3>Inventory financing</h3><p>We carry the cost of stock so your working capital stays free.</p>
+        </div>
+        <div class="pillar">
+          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3l11 5v8c0 7-5 11-11 13C10 27 5 23 5 16V8z"/><path d="M11 16l4 4 7-8"/></svg>
+          <h3>Marketing agency</h3><p>We represent producers and place their metal with the right buyers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="metals">
+    <div class="wrap">
+      <span class="eyebrow">What we trade</span>
+      <h2>Aluminium</h2>
+      <div class="focus">
+        <div class="focus-visual" role="img" aria-label="Stacks of aluminium ingots"></div>
+        <div class="focus-text">
+          <h3>Our products</h3>
+          <p>Aluminium is our core business. We supply:</p>
+          <ul>
+            <li>LME-deliverable primary aluminium</li>
+            <li>High-purity aluminium</li>
+            <li>Primary foundry alloys</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="team">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Our team</span>
+        <h2>Management</h2>
+      </div>
+      <div class="leader">
+        <h3>Anar Artioli</h3>
+        <p class="role">Managing Director</p>
+        <p class="bio-text">Anar has more than 25 years of experience across the metals trading industry. She was Director of Intamex S.A. from 1997 to 2020, then Chief Operating Officer of Konexus Resources Group.</p>
+        <a class="linkedin" href="https://www.linkedin.com/in/anar-artioli-277819a7/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56zM22.22 0H1.77C.79 0 0 .77 0 1.730v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn profile</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <div>
+        <h2>Looking for aluminium?</h2>
+        <p>Send us a message and we will get back to you.</p>
+      </div>
+      <a class="btn" href="#contact">Get in touch</a>
+    </div>
+  </section>
+</main>
+
+<!-- ============ GET IN TOUCH ============ -->
+<main id="view-contact" hidden>
+  <section class="page-head">
+    <div class="wrap">
+      <span class="eyebrow">Lutry, VD, Switzerland</span>
+      <h1>Get in touch</h1>
+    </div>
+  </section>
+
+  <section class="contact-body">
+    <div class="wrap">
+      <div class="contact-person">
+        <h2>Anar Artioli</h2>
+        <p class="role">Managing Director</p>
+        <p class="bio-text">Anar has more than 25 years of experience across the metals trading industry. She was Director of Intamex S.A. from 1997 to 2020, then Chief Operating Officer of Konexus Resources Group.</p>
+        <a class="linkedin" href="https://www.linkedin.com/in/anar-artioli-277819a7/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56zM22.22 0H1.77C.79 0 0 .77 0 1.730v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn profile</a>
+      </div>
+
+      <form id="contact-form">
+        <label>First name<input id="f-first" name="first_name" required autocomplete="given-name"></label>
+        <label>Last name<input id="f-last" name="last_name" required autocomplete="family-name"></label>
+        <label>Company<input id="f-company" name="company" required autocomplete="organization"></label>
+        <label>Country<input id="f-country" name="country" autocomplete="country-name"></label>
+        <label>Email<input id="f-email" name="email" type="email" required autocomplete="email"></label>
+        <label>Phone <span class="opt">(optional)</span><input id="f-phone" name="phone" type="tel" autocomplete="tel"></label>
+        <label class="full">Subject
+          <select id="f-subject" name="subject">
+            <option>Buying aluminium</option>
+            <option>Selling aluminium</option>
+            <option>Partnership</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <label class="full">Message<textarea id="f-message" name="message" required></textarea></label>
+        <label class="consent"><input type="checkbox" id="f-consent" required> I agree that ALStrade may use these details to reply to my enquiry.</label>
+        <div class="form-foot">
+          <button class="btn" type="submit" id="f-submit">Send message</button>
+          <p id="form-note" role="status"></p>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="assets/logo.png" alt="ALStrade" width="53" height="30">
+    <span>© 2026 ALStrade Consulting Sàrl · Lutry, VD, Switzerland · UID CHE-429.863.366</span>
+  </div>
+</footer>
+
+<script>
+  const home = document.getElementById('view-home');
+  const contact = document.getElementById('view-contact');
+  function route() {
+    const onContact = location.hash === '#contact';
+    home.hidden = onContact;
+    contact.hidden = !onContact;
+    document.getElementById('nav-home').toggleAttribute('aria-current', !onContact);
+    document.getElementById('nav-contact').toggleAttribute('aria-current', onContact);
+    if (!onContact || location.hash) window.scrollTo(0, 0);
+  }
+  window.addEventListener('hashchange', route);
+  route();
+  // Form service endpoint (e.g. Formspree, set up to deliver to Anar's inbox).
+  // Paste the endpoint URL here when the account exists, e.g. 'https://formspree.io/f/xxxxxxx'.
+  const FORM_ENDPOINT = '';
+  const form = document.getElementById('contact-form');
+  const note = document.getElementById('form-note');
+  const submitBtn = document.getElementById('f-submit');
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    if (!FORM_ENDPOINT) {
+      note.textContent = 'Preview only: this form isn’t connected to an inbox yet.';
+      return;
+    }
+    submitBtn.disabled = true;
+    note.textContent = 'Sending…';
+    try {
+      const res = await fetch(FORM_ENDPOINT, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+      if (!res.ok) throw new Error(res.status);
+      form.reset();
+      note.textContent = 'Thank you. Your message has been sent and we will reply soon.';
+    } catch {
+      note.textContent = 'Your message could not be sent. Please try again in a few minutes.';
+    } finally {
+      submitBtn.disabled = false;
+    }
+  });
+</script>
+
+</body>
+</html>
