@@ -73,7 +73,7 @@ nav .btn, nav .btn[aria-current="page"] { color: var(--white); padding: 10px 18p
 .person-links { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
 .linkedin { display: inline-flex; align-items: center; gap: 8px; color: var(--blue); font-weight: 500; text-decoration: none; }
 .linkedin:hover { text-decoration: underline; }
-.linkedin svg { width: 18px; height: 18px; fill: currentColor; flex: none; }
+.linkedin svg { width: 18px; height: 18px; fill: currentColor; }
 
 .cta { background: var(--navy); color: var(--on-navy); padding-block: 72px; }
 .cta .wrap { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
