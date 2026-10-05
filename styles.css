@@ -71,7 +71,7 @@ nav .btn { color: var(--white); padding: 10px 18px; }
 .leader .bio-text { color: var(--muted); margin: 0 0 18px; max-width: 36em; }
 @media (max-width: 760px) { .team .wrap { grid-template-columns: 1fr; gap: 24px; } }
 .person-links { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-.linkedin { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 8px; background: var(--blue); color: var(--white); text-decoration: none; transition: transform .2s ease; }
+.linkedin { display: inline-flex; align-items: center; justify-content: center; width: 25px; height: 25px; border-radius: 8px; background: var(--blue); color: var(--white); text-decoration: none; transition: transform .2s ease; }
 .linkedin:hover { text-decoration: none; transform: translateY(-1px); }
 .linkedin svg { width: 24px; height: 24px; display: block; }
 .linkedin svg rect { fill: var(--blue); }
