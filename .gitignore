@@ -1,3 +1,4 @@
 # Private: QR code with personal contact details and the script that builds it
 tools/
 .DS_Store
+.claude/
