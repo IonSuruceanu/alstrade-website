@@ -71,9 +71,9 @@ nav .btn, nav .btn[aria-current="page"] { color: var(--white); padding: 10px 18p
 .leader .bio-text { color: var(--muted); margin: 0 0 18px; max-width: 36em; }
 @media (max-width: 760px) { .team .wrap { grid-template-columns: 1fr; gap: 24px; } }
 .person-links { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-.linkedin { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 8px; background: var(--blue); color: var(--white); text-decoration: none; transition: background .2s ease, transform .2s ease; }
-.linkedin:hover { background: var(--navy); transform: translateY(-1px); }
-.linkedin svg { width: 20px; height: 20px; display: block; fill: currentColor; }
+.linkedin { display: inline-flex; align-items: center; gap: 8px; color: var(--blue); font-weight: 500; text-decoration: none; }
+.linkedin:hover { text-decoration: underline; }
+.linkedin svg { width: 18px; height: 18px; fill: currentColor; flex: none; }
 
 .cta { background: var(--navy); color: var(--on-navy); padding-block: 72px; }
 .cta .wrap { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
